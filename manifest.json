@@ -1,0 +1,10 @@
+{
+ "manifest_version": 3,
+  "name": "Tasa",
+  "description": "To-do list for web-browsing.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "list.html",
+    "default_icon": "icon_task.png"
+  }
+}
