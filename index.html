@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css">
-    <script src="functions.js"></script>
-    <title>Tasa</title>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="head">
-        <div class="title">To Do</div>
-        <button class="add-button">&plus;</button>
-      </div>
-    </div>
-    <ul class="tasks"></ul>
+    <template id="li_template">
+      <li>
+        <a>
+          <h3 class="title">Task Title</h3>
+          <p class="pathname">comments</p>
+        </a>
+      </li>
+    </template>
+
+    <h1>To Do</h1>
+    <button>&plus;</button>
+    <ul></ul>
+
+    <script src="functions.js" type="module"></script>
   </body>
 </html>
