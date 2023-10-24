@@ -7,19 +7,14 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <template id="li_template">
-      <li>
-        <a>
-          <h3 class="title">Task Title</h3>
-          <p class="pathname">comments</p>
-        </a>
-      </li>
-    </template>
-
-    <h1>To Do</h1>
-    <button>&plus;</button>
-    <ul></ul>
-
+    <div class="wrapper">
+      <div class="header">
+        <span id="title">To Do</span>
+        <button id="add_button">&plus;</button>
+      </div>
+      <input type="text" id="task_entry" placeholder="Add Task Here ..." size="34">
+      <ul id="tasks_box"></ul>
+    </div>
     <script src="functions.js" type="module"></script>
   </body>
 </html>

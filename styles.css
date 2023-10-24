@@ -1,11 +1,59 @@
 body {
+    box-sizing: border-box;
     width: 20rem;
+    background: rgb(26, 25, 36);
+    display: flex;
+    font-family: futura, sans-serif;
+    font-display: swap;
+    font-size: 35px
 }
-
+.wrapper {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(225, 225, 225, 0.75);
+    border: 1px solid rgba(225, 225, 225, 0.01);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(225, 225, 225, 0.3);
+    border: 1px solid rgba(225, 225, 225, 0.34);
+    flex-basis: 400px;
+    height: 350px;
+    padding: 10px 20px;
+    color: white;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    
+}
+#add_button {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(225, 225, 225, 0.75);
+    border: 1px solid rgba(225, 225, 25, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-family: inherit;
+    font-size: 24px;
+    height:40px;
+    width: 40px;
+    background-color: white;
+}
+#task_entry {
+    border-radius: 5px;
+    border: 1px solid rgba(225, 225, 25, 0.1);
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    font-size: 16px;
+}
 ul {
     list-style-type: none;
     padding-inline-start: 0;
     margin: 1rem 0;
+    font-size: 14px;
 }
 
 li {
@@ -16,9 +64,5 @@ li:nth-child(odd) {
 }
 li:nth-child(even) {
     background: #ffffff;
-}
-
-h3,
-p {
-    margin: 0;
+    color: black;
 }
