@@ -5,19 +5,23 @@ const delete_task_button = document.getElementById("delete_button");
 
 //adds a task to the list
 add_button.addEventListener("click", () => {
-    const new_task_item = document.getElementById("task_entry_box");
-    const new_li = document.createElement("li");
-    if (new_task_item.value){
-        new_li.innerHTML=new_task_item.value;
-        task_list.appendChild(new_li);
-        new_task_item.value = "";
+    const task_input = document.getElementById("task_entry_box");
+    const new_task = document.createElement("li");
+    if (task_input.value) {
+        new_task.innerHTML=task_input.value;
+        task_list.appendChild(new_task);
+        const dlt_btn = document.createElement("span");
+        dlt_btn.innerHTML="&bigotimes;";
+        new_task.appendChild(dlt_btn);
+
+        task_input.value="";
     }
 });
 
 //removes a task from the list
-delete_task_button.addEventListener("click", () => {
-    const deletion_task = document.querySelector("li");
-    task_list.removeChild(deletion_task);
-});
-
+task_list.addEventListener("click", function(e) {
+    if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+    }
+}, false);
 
