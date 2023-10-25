@@ -1,7 +1,6 @@
 //initializes the add/delete buttons and list of tasks
 const task_list = document.getElementById("task_list");
 const add_button = document.getElementById("add_button");
-const delete_task_button = document.getElementById("delete_button");
 
 //adds a task to the list
 add_button.addEventListener("click", () => {
@@ -10,7 +9,7 @@ add_button.addEventListener("click", () => {
     if (task_input.value) {
         new_task.innerHTML=task_input.value;
         task_list.appendChild(new_task);
-        const dlt_btn = document.createElement("span");
+        const dlt_btn = document.createElement("button");
         dlt_btn.innerHTML="&times;";
         new_task.appendChild(dlt_btn);
 
@@ -21,7 +20,7 @@ add_button.addEventListener("click", () => {
 
 //removes a task from the list
 task_list.addEventListener("click", function(e) {
-    if (e.target.tagName === "SPAN") {
+    if (e.target.tagName === "BUTTON") {
         e.target.parentElement.remove();
     }
     saveTasks();
@@ -36,4 +35,3 @@ function displayTasks() {
     task_list.innerHTML = localStorage.getItem("tasks");
 }
 displayTasks();
-
