@@ -48,13 +48,21 @@ ul {
     padding-left: 0;
 }
 li {
+    
     display: flex;
     justify-content: space-between;
+}
+li::before {
+    content: '\2610';
+    font-size: 16px;
+    padding-right: 5px;
+    cursor: pointer;
 }
 li button {
     color: rgb(0, 145, 255);
     border: 0;
     background-color: inherit;
+    margin-left: auto;
 }
 li button:hover {
     background-color: rgb(244, 244, 244);
