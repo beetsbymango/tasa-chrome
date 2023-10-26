@@ -7,12 +7,18 @@ const task_entry_box = document.getElementById("task_entry_box")
 add_button.addEventListener("click", () => {
     if (task_entry_box.value) {
         const new_task = document.createElement("li");
-        new_task.innerHTML=task_entry_box.value;
+        new_task.innerHTML=
+        `
+            <span id="left">
+                <input type="checkbox" id="status">
+                ${task_entry_box.value}
+            </span>
+            <span id="right">
+                <button class="focus">*</button>
+                <button class="delete">&times;</button>
+            </span>
+        `;
         task_list.appendChild(new_task);
-        const dlt_btn = document.createElement("button");
-        dlt_btn.innerHTML="&times;";
-        new_task.appendChild(dlt_btn);
-
         task_entry_box.value="";
     }
     saveTasks();
@@ -20,8 +26,8 @@ add_button.addEventListener("click", () => {
 
 //removes a task from the list
 task_list.addEventListener("click", function(e) {
-    if (e.target.tagName === "BUTTON") {
-        e.target.parentElement.remove();
+    if (e.target.className === "delete") {
+        e.target.parentElement.parentElement.remove();
     }
     saveTasks();
 }, false);
