@@ -9,7 +9,7 @@ body {
 }
 .wrapper {
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.3);
-    border: 1px solid black;
+    border: 1px solid rgba(225, 225, 225, 1);
     border-radius: 10px;
     flex-basis: 400px;
     padding: 10px 20px;
@@ -48,15 +48,8 @@ ul {
     padding-left: 0;
 }
 li {
-    
     display: flex;
     justify-content: space-between;
-}
-li::before {
-    content: '\2610';
-    font-size: 16px;
-    padding-right: 5px;
-    cursor: pointer;
 }
 li button {
     color: rgb(0, 145, 255);

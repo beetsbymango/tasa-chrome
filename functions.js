@@ -1,19 +1,19 @@
-//initializes the add/delete buttons and list of tasks
+//initializes the add/delete
 const task_list = document.getElementById("task_list");
 const add_button = document.getElementById("add_button");
+const task_entry_box = document.getElementById("task_entry_box")
 
 //adds a task to the list
 add_button.addEventListener("click", () => {
-    const task_input = document.getElementById("task_entry_box");
-    const new_task = document.createElement("li");
-    if (task_input.value) {
-        new_task.innerHTML=task_input.value;
+    if (task_entry_box.value) {
+        const new_task = document.createElement("li");
+        new_task.innerHTML=task_entry_box.value;
         task_list.appendChild(new_task);
         const dlt_btn = document.createElement("button");
         dlt_btn.innerHTML="&times;";
         new_task.appendChild(dlt_btn);
 
-        task_input.value="";
+        task_entry_box.value="";
     }
     saveTasks();
 });
