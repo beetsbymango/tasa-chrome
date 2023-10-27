@@ -10,11 +10,11 @@ add_button.addEventListener("click", () => {
         new_task.innerHTML=
         `
             <span id="left">
-                <input type="checkbox" id="status">
+                <input type="checkbox" class="status">
                 ${task_entry_box.value}
             </span>
             <span id="right">
-                <button class="focus">*</button>
+                <button class="focus">★</button>
                 <button class="delete">&times;</button>
             </span>
         `;
@@ -28,6 +28,8 @@ add_button.addEventListener("click", () => {
 task_list.addEventListener("click", function(e) {
     if (e.target.className === "delete") {
         e.target.parentElement.parentElement.remove();
+    } else if (e.target.className === "status") {
+        console.log("it works");
     }
     saveTasks();
 }, false);
