@@ -11,7 +11,7 @@ add_button.addEventListener("click", () => {
         `
             <span id="left">
                 <input type="checkbox" class="status">
-                ${task_entry_box.value}
+                <span id="task">${task_entry_box.value}</span>
             </span>
             <span id="right">
                 <button class="focus">★</button>
@@ -23,15 +23,28 @@ add_button.addEventListener("click", () => {
     }
     saveTasks();
 });
+task_entry_box.addEventListener("keydown", function(e) {
+    if(e.key === "Enter") {
+        add_button.click();
+    }
+});
 
-//removes a task from the list
+//event listeners for checkbox, delete button in list items
 task_list.addEventListener("click", function(e) {
+    //delete button
     if (e.target.className === "delete") {
         e.target.parentElement.parentElement.remove();
+    //checkbox
     } else if (e.target.className === "status") {
-        console.log("it works");
+        const completion_status = e.target;
+        const task_alter = completion_status.nextElementSibling;
+        if(completion_status.checked) {
+            task_alter.style.textDecoration = "line-through";
+        } else {
+            task_alter.style.textDecoration = "none";
+        }
     }
-    saveTasks();
+    
 }, false);
 
 //saves list after exiting app

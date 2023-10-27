@@ -64,3 +64,6 @@ li button:active {
     color: rgb(0, 131, 232);
     background-color: rgb(223, 223, 223);
 }
+.status:hover {
+    cursor: pointer;
+}
