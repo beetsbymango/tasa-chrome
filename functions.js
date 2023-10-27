@@ -34,6 +34,7 @@ task_list.addEventListener("click", function(e) {
     //delete button
     if (e.target.className === "delete") {
         e.target.parentElement.parentElement.remove();
+        saveTasks();
     //checkbox
     } else if (e.target.className === "status") {
         const completion_status = e.target;
@@ -43,9 +44,20 @@ task_list.addEventListener("click", function(e) {
         } else {
             task_alter.style.textDecoration = "none";
         }
+        saveTasks();
+    }else if (e.target.className === "focus") {
+        const priority_task = e.target.parentElement.parentElement;
+        toggleFocus(priority_task);
+        saveTasks();
     }
     
 }, false);
+//toggles a task's focus
+function toggleFocus(new_head) {
+    task_list.removeChild(new_head);
+    task_list.insertBefore(new_head, task_list.firstChild);
+    console.log("it still works");
+}
 
 //saves list after exiting app
 function saveTasks() {
