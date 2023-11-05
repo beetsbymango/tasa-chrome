@@ -18,6 +18,10 @@ add_button.addEventListener("click", () => {
                 <button class="delete">&times;</button>
             </span>
         `;
+        if(task_list.childElementCount != 0) {
+            const hr = document.createElement("hr");
+            task_list.appendChild(hr);
+        }
         task_list.appendChild(new_task);
         task_entry_box.value="";
     }
@@ -33,6 +37,9 @@ task_entry_box.addEventListener("keydown", function(e) {
 task_list.addEventListener("click", function(e) {
     //delete button
     if (e.target.className === "delete") {
+        if(task_list.childElementCount > 1){
+            e.target.parentElement.parentElement.previousElementSibling.remove();
+        }
         e.target.parentElement.parentElement.remove();
         saveTasks();
     //checkbox
