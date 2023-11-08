@@ -37,10 +37,23 @@ task_entry_box.addEventListener("keydown", function(e) {
 task_list.addEventListener("click", function(e) {
     //delete button
     if (e.target.className === "delete") {
-        if(task_list.childElementCount > 1){
-            e.target.parentElement.parentElement.previousElementSibling.remove();
+        if(e.target.parentElement.parentElement === task_list.firstChild){
+            console.log('deleting first element');
+            if(task_list.childElementCount > 1){
+                e.target.parentElement.parentElement.nextElementSibling.remove();
+            }
+            e.target.parentElement.parentElement.remove();
         }
-        e.target.parentElement.parentElement.remove();
+        else if(e.target.parentElement.parentElement === task_list.lastChild){
+            console.log('deleting last element');
+            e.target.parentElement.parentElement.previousElementSibling.remove();
+            e.target.parentElement.parentElement.remove();
+        }
+        else {
+            console.log('deleting middle element');
+            e.target.parentElement.parentElement.previousElementSibling.remove();
+            e.target.parentElement.parentElement.remove();
+        }
         saveTasks();
     //checkbox
     } else if (e.target.className === "status") {
