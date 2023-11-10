@@ -1,0 +1,62 @@
+body {
+    box-sizing: border-box;
+    color: rgb(0, 153, 255);
+    display: flex;
+    width: 22rem;
+
+}
+#main_view {
+    flex-basis:400px;
+    height: auto;
+    font-size: 35px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3%;
+}
+#input{
+    display: flex;
+    justify-content: space-between;
+}
+#task_entry_box {
+    border-color: rgba(225, 225, 225, 0.5);
+    border-radius: 5px;
+    
+}
+button {
+    border-color: rgba(225, 225, 225, 0.5);
+    border-radius: 5px;
+    color: rgb(0, 153, 255);
+    background-color: inherit;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(240, 240, 240);
+}
+button:active {
+    color: rgb(0, 131, 222);
+    background-color: rgb(223, 223, 223);
+}
+#task_list {
+    list-style-type:none;
+    padding-left: 0;
+    font-size: 14px;;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+}
+#left {
+    padding-right: 8px;
+}
+#right {
+    display: flex;
+    justify-content: space-between;
+}
+hr{
+    border-color: rgba(225, 225, 225, 0.1);
+}
+.status:hover {
+    cursor: pointer;
+}

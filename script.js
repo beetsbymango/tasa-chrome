@@ -1,8 +1,11 @@
 //initializes elements
+const main_view = document.getElementById("main_view");
+const clear_button = document.getElementById("clear_button");
 const task_list = document.getElementById("task_list");
 const add_button = document.getElementById("add_button");
 const task_entry_box = document.getElementById("task_entry_box");
-const clear_button = document.getElementById("clear_button");
+const task_view = document.getElementById("task_view");
+
 //adds tasks
 add_button.addEventListener("click", () => {
     if(task_entry_box.value) {
@@ -11,7 +14,7 @@ add_button.addEventListener("click", () => {
         `
             <span id="left">
                 <input type="checkbox" class="status">
-                <span id="task">${task_entry_box.value}</span>
+                <span class="task">${task_entry_box.value}</span>
             </span>
             <span id="right">
                 <button class="focus">★</button>
@@ -34,8 +37,21 @@ task_entry_box.addEventListener("keydown", function(e) {
         add_button.click();
     }
 });
+
+//event listener for clear button / lets user clear out entire task list
+clear_button.addEventListener("click", () => {
+    if(task_list.childElementCount > 0){
+        while(task_list.childElementCount > 0) {
+            task_list.removeChild(task_list.lastChild);
+        }
+        console.log("cleared all children");
+        saveTasks();
+    }
+});
+
 //event listener for task buttons
 task_list.addEventListener("click", function(e) {
+    console.log(e.target);
     //delete button
     if (e.target.className === "delete") {
         if(e.target.parentElement.parentElement === task_list.firstChild) {
@@ -88,17 +104,6 @@ function toggleFocus(new_head) {
         task_list.insertBefore(new_head, task_list.firstChild);
     }
 }
-
-//event listener for clear button / lets user clear out entire task list
-clear_button.addEventListener("click", () => {
-    if(task_list.childElementCount > 0){
-        while(task_list.childElementCount > 0) {
-            task_list.removeChild(task_list.lastChild);
-        }
-        console.log("cleared all children");
-        saveTasks();
-    }
-});
 //saves list after exiting app
 function saveTasks() {
     localStorage.setItem("tasks", task_list.innerHTML);
